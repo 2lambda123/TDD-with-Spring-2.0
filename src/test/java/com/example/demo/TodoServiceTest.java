@@ -39,7 +39,7 @@ class TodoServiceTest {
                 .title("Todo 1")
                 .description("Clean laptop")
                 .build();
-        assertThat(serviceUnderTest.addNewTodo(todo)).isFalse();
+        assertThat(serviceUnderTest.addNewTodo(todo)).isTrue();
     }
 
 }
