@@ -1,19 +1,26 @@
 package com.example.demo;
 
-import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@RequiredArgsConstructor
+@ExtendWith(MockitoExtension.class)
 class TodoServiceTest {
-    private final TodoService serviceUnderTest;
+    @InjectMocks
+    private TodoService serviceUnderTest;
 
     @Test
     @DisplayName("Should Return All Todos")
     void shouldReturnAllTodos() {
-        return serviceUnderTest.getAllTodos();
+        assertEquals(serviceUnderTest.getAllTodos(), new ArrayList<String>());
     }
 
 }
