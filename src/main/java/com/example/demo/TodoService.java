@@ -31,6 +31,6 @@ public class TodoService {
 
     public boolean addNewTodo(Todo todo) {
         todoRepository.save(todo);
-        return false;
+        return true;
     }
 }
