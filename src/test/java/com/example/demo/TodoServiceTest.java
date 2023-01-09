@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import lombok.RequiredArgsConstructor;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,6 +22,18 @@ class TodoServiceTest {
     private TodoService serviceUnderTest;
     @Mock
     private TodoRepository todoRepository;
+    @BeforeEach
+    void setup() {
+        Todo todo1 = new Todo(1, "Todo 1", "Clean desk");
+        Todo todo2 = new Todo(2, "Todo 2", "Make lunch");
+        Todo todo3 = new Todo(3, "Todo 3", "Cook food");
+        ArrayList<Todo> todos = new ArrayList<>();
+        todos.add(todo1);
+        todos.add(todo2);
+        todos.add(todo3);
+
+        todoRepository.saveAll(todos);
+    }
 
     @Test
     @DisplayName("Should Return All Todos")
@@ -40,6 +55,12 @@ class TodoServiceTest {
                 .description("Clean laptop")
                 .build();
         assertThat(serviceUnderTest.addNewTodo(todo)).isTrue();
+    }
+
+    @Test
+    @DisplayName("Should save all todos and return true")
+    void shouldSaveAllTodosAndReturnTrue() {
+
     }
 
 }
