@@ -33,4 +33,8 @@ public class TodoService {
         todoRepository.save(todo);
         return true;
     }
+
+    public boolean addAllTodos() {
+        return false;
+    }
 }
