@@ -22,6 +22,11 @@ class TodoServiceTest {
     private TodoService serviceUnderTest;
     @Mock
     private TodoRepository todoRepository;
+
+    @BeforeAll
+    static void beforeAll() {
+    }
+
     @BeforeEach
     void setup() {
         Todo todo1 = new Todo(1, "Todo 1", "Clean desk");
