@@ -24,4 +24,10 @@ class TodoServiceTest {
         assertThat(serviceUnderTest.getAllTodos()).isNotEmpty();
     }
 
+    @Test
+    @DisplayName("Should return Todo by name")
+    void shouldReturnTodoByName() {
+
+    }
+
 }
