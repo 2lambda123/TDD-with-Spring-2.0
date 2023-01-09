@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 @Service
 public class TodoService {
-    public ArrayList<Object> getAllTodos() {
-        return new ArrayList<>();
+    public ArrayList<String> getAllTodos() {
+        return new ArrayList<String>();
     }
 }
