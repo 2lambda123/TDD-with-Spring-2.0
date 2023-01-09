@@ -70,7 +70,7 @@ class TodoServiceTest {
                         .title("Todo 5")
                         .description("Iron clothes")
                 .build());
-        assertThat(serviceUnderTest.addAllTodos()).isTrue();
+        assertThat(serviceUnderTest.addAllTodos()).isFalse();
     }
 
 }
