@@ -30,4 +30,10 @@ class TodoServiceTest {
         assertThat(serviceUnderTest.getTodoByName("Todo 2")).isNotEmpty();
     }
 
+    @Test
+    @DisplayName("Should add new Todo and return True")
+    void shouldAddNewTodoAndReturnTrue() {
+
+    }
+
 }
