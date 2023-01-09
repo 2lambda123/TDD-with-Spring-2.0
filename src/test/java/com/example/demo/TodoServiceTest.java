@@ -60,7 +60,17 @@ class TodoServiceTest {
     @Test
     @DisplayName("Should save all todos and return true")
     void shouldSaveAllTodosAndReturnTrue() {
+        ArrayList<Todo> todosToSave = new ArrayList<>();
+        todosToSave.add(Todo.builder()
+                        .title("Todo 4")
+                        .description("Clean room")
+                .build());
 
+        todosToSave.add(Todo.builder()
+                        .title("Todo 5")
+                        .description("Iron clothes")
+                .build());
+        assertThat(serviceUnderTest.addAllTodos()).isTrue();
     }
 
 }
