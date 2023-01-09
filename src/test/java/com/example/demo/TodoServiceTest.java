@@ -33,7 +33,11 @@ class TodoServiceTest {
     @Test
     @DisplayName("Should add new Todo and return True")
     void shouldAddNewTodoAndReturnTrue() {
-        assertThat(serviceUnderTest.addNewTodo()).isFalse();
+        Todo todo = Todo.builder()
+                .title("Todo 1")
+                .description("Clean laptop")
+                .build();
+        assertThat(serviceUnderTest.addNewTodo(todo)).isFalse();
     }
 
 }
