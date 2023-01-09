@@ -10,6 +10,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.ArrayList;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -20,7 +21,7 @@ class TodoServiceTest {
     @Test
     @DisplayName("Should Return All Todos")
     void shouldReturnAllTodos() {
-        assertEquals(serviceUnderTest.getAllTodos(), new ArrayList<String>());
+        assertThat(serviceUnderTest.getAllTodos()).isNotEmpty();
     }
 
 }
