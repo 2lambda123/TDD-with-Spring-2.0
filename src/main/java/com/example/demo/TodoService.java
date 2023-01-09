@@ -25,7 +25,7 @@ public class TodoService {
         return todos.get(title);
     }
 
-    public boolean addNewTodo() {
+    public boolean addNewTodo(Todo todo) {
         return false;
     }
 }
