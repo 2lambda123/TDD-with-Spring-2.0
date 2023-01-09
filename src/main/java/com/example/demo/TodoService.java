@@ -1,12 +1,16 @@
 package com.example.demo;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 @Service
+@RequiredArgsConstructor
 public class TodoService {
+    private final TodoRepository todoRepository;
+
     public ArrayList<String> getAllTodos() {
         ArrayList<String> todos = new ArrayList<>();
         todos.add("Make Lunch");
