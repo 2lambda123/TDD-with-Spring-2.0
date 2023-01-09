@@ -17,6 +17,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class TodoServiceTest {
     @InjectMocks
     private TodoService serviceUnderTest;
+    @Mock
+    private TodoRepository todoRepository;
 
     @Test
     @DisplayName("Should Return All Todos")
