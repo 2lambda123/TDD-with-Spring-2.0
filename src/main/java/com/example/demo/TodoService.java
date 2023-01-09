@@ -24,4 +24,8 @@ public class TodoService {
 
         return todos.get(title);
     }
+
+    public boolean addNewTodo() {
+        return false;
+    }
 }
