@@ -81,7 +81,13 @@ class TodoServiceTest {
     @Test
     @DisplayName("Should throw exception if todo already saved")
     void shouldThrownExceptionIfTodoAlreadySaved() {
-
+        Todo todo = Todo.builder()
+                .title("Todo 1")
+                .description("Clean laptop")
+                .build();
+        assertThrows(RuntimeException.class, () -> {
+            serviceUnderTest.addNewTodo(todo);
+        });
     }
 
 }
