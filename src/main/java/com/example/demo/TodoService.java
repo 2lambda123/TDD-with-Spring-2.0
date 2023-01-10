@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -34,7 +35,8 @@ public class TodoService {
         return true;
     }
 
-    public boolean addAllTodos() {
+    public boolean addAllTodos(List<Todo> todoList) {
+        todoRepository.saveAll(todoList);
         return false;
     }
 }
