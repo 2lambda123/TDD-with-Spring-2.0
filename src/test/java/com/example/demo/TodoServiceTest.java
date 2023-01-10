@@ -75,7 +75,7 @@ class TodoServiceTest {
                         .title("Todo 5")
                         .description("Iron clothes")
                 .build());
-        assertThat(serviceUnderTest.addAllTodos()).isFalse();
+        assertThat(serviceUnderTest.addAllTodos(todosToSave)).isFalse();
     }
 
 }
