@@ -78,4 +78,10 @@ class TodoServiceTest {
         assertThat(serviceUnderTest.addAllTodos(todosToSave)).isTrue();
     }
 
+    @Test
+    @DisplayName("Should throw exception if todo already saved")
+    void shouldThrownExceptionIfTodoAlreadySaved() {
+
+    }
+
 }
