@@ -80,7 +80,7 @@ class TodoServiceTest {
 
     @Test
     @DisplayName("Should throw exception if todo already saved")
-    void shouldThrownExceptionIfTodoAlreadySaved() {
+    void shouldThrowExceptionIfTodoAlreadySaved() {
         Todo todo = Todo.builder()
                 .title("Todo 1")
                 .description("Clean laptop")
