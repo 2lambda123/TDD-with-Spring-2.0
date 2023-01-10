@@ -37,6 +37,6 @@ public class TodoService {
 
     public boolean addAllTodos(List<Todo> todoList) {
         todoRepository.saveAll(todoList);
-        return false;
+        return true;
     }
 }
