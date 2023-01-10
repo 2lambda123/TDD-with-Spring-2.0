@@ -26,13 +26,12 @@ class TodoRepositoryTest {
     @Test
     @DisplayName("Should find todo by title")
     void shouldFindTodoByTitle() {
-        Todo actual = repositoryUnderTest.findTodoByTitle("Todo 1");
-        assertThat(actual).isNotNull();
+        assertThat(repositoryUnderTest.findTodoByTitle("Todo 1")).isNotNull();
     }
 
     @Test
     @DisplayName("Should return null if todo not found by title")
     void shouldReturnNullIfTodoNotFoundByTitle() {
-
+        assertThat(repositoryUnderTest.findTodoByTitle("Todo 2")).isNull();
     }
 }
