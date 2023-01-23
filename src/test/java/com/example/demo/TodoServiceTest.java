@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class TodoServiceTest {
@@ -53,13 +55,31 @@ class TodoServiceTest {
     }
 
     @Test
-    @DisplayName("Should add new Todo and return True")
-    void shouldAddNewTodoAndReturnTrue() {
-        Todo todo = Todo.builder()
+    @DisplayName("Should Add New Todo If New Todo Already Not Exists By Title")
+    void shouldAddNewTodoIfNewTodoAlreadyNotExistsByTitle() {
+        Todo todoToSave = Todo.builder()
+                .title("Todo 1")
+                .description("Make some preparations")
+                .build();
+        assertThat(serviceUnderTest.addNewTodo(todoToSave)).isTrue();
+    }
+
+    @Test
+    @DisplayName("Should Not Add New Todo If New Todo Already Exists By Title")
+    void shouldNotAddNewTodoIfNewTodoAlreadyExistsByTitle() {
+        Todo existingTodo = Todo.builder()
                 .title("Todo 1")
                 .description("Clean laptop")
                 .build();
-        assertThat(serviceUnderTest.addNewTodo(todo)).isTrue();
+        when(todoRepository.findTodoByTitle(any())).thenReturn(existingTodo);
+
+        Todo newTodoToSave = Todo.builder()
+                .title("Todo 1")
+                .description("Cook food")
+                .build();
+        assertThrows(RuntimeException.class, () -> {
+            serviceUnderTest.addNewTodo(newTodoToSave);
+        });
     }
 
     @Test
@@ -89,5 +109,4 @@ class TodoServiceTest {
             serviceUnderTest.addNewTodo(todo);
         });
     }
-
 }

@@ -31,6 +31,9 @@ public class TodoService {
     }
 
     public boolean addNewTodo(Todo todo) {
+        if (todoRepository.findTodoByTitle(todo.getTitle()) != null) {
+            throw new RuntimeException("Todo with same title already exists before");
+        }
         todoRepository.save(todo);
         return true;
     }
