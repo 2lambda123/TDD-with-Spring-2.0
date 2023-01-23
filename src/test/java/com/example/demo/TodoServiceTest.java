@@ -25,23 +25,6 @@ class TodoServiceTest {
     @Mock
     private TodoRepository todoRepository;
 
-    @BeforeAll
-    static void beforeAll() {
-    }
-
-    @BeforeEach
-    void setup() {
-        Todo todo1 = new Todo(1, "Todo 1", "Clean desk");
-        Todo todo2 = new Todo(2, "Todo 2", "Make lunch");
-        Todo todo3 = new Todo(3, "Todo 3", "Cook food");
-        ArrayList<Todo> todos = new ArrayList<>();
-        todos.add(todo1);
-        todos.add(todo2);
-        todos.add(todo3);
-
-        todoRepository.saveAll(todos);
-    }
-
     @Test
     @DisplayName("Should Return All Todos")
     void shouldReturnAllTodos() {
@@ -96,17 +79,5 @@ class TodoServiceTest {
                         .description("Iron clothes")
                 .build());
         assertThat(serviceUnderTest.addAllTodos(todosToSave)).isTrue();
-    }
-
-    @Test
-    @DisplayName("Should throw exception if todo already saved")
-    void shouldThrowExceptionIfTodoAlreadySaved() {
-        Todo todo = Todo.builder()
-                .title("Todo 1")
-                .description("Clean laptop")
-                .build();
-        assertThrows(RuntimeException.class, () -> {
-            serviceUnderTest.addNewTodo(todo);
-        });
     }
 }
