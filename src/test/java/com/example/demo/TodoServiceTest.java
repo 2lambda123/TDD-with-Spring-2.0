@@ -30,6 +30,12 @@ class TodoServiceTest {
     @Test
     @DisplayName("Should return Todo by name")
     void shouldGetTodoByTitle() {
+        Todo existingTodo = Todo.builder()
+                .title("Todo 1")
+                .description("Pack bag")
+                .build();
+        when(todoRepository.findTodoByTitle(any())).thenReturn(existingTodo);
+
         assertThat(serviceUnderTest.getTodoByName("Todo 2")).isNotEmpty();
     }
 
