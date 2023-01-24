@@ -21,13 +21,8 @@ public class TodoService {
         return todos;
     }
 
-    public String getTodoByName(String title) {
-        HashMap<String, String> todos = new HashMap<>();
-        todos.put("Todo 1", "Make Lunch");
-        todos.put("Todo 2", "Charge Laptop");
-        todos.put("Todo 3", "Pack bag");
-
-        return todos.get(title);
+    public Todo getTodoByName(String title) {
+        return todoRepository.findTodoByTitle(title);
     }
 
     public boolean addNewTodo(Todo todo) {
