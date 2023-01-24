@@ -12,13 +12,8 @@ import java.util.List;
 public class TodoService {
     private final TodoRepository todoRepository;
 
-    public ArrayList<String> getAllTodos() {
-        ArrayList<String> todos = new ArrayList<>();
-        todos.add("Make Lunch");
-        todos.add("Charge Laptop");
-        todos.add("Pack bag");
-
-        return todos;
+    public List<Todo> getAllTodos() {
+        return todoRepository.findAll();
     }
 
     public Todo getTodoByName(String title) {
