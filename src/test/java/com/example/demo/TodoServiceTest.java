@@ -127,4 +127,12 @@ class TodoServiceTest {
                 existingTodo.getDescription()
         )).isNotNull();
     }
+
+    @Test
+    @DisplayName("Should Throw Exception If Todo Not Found By Title And Description")
+    void shouldThrowExceptionIfTodoNotFoundByTitleAndDescription() {
+        assertThrows(RuntimeException.class, () -> {
+            serviceUnderTest.getTodoByTitleAndDescription("Todo 1", "Clean laptop");
+        });
+    }
 }
