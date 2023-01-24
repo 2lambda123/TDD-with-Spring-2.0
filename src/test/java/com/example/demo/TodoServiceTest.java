@@ -23,7 +23,7 @@ class TodoServiceTest {
 
     @Test
     @DisplayName("Should Return All Todos")
-    void shouldReturnAllTodos() {
+    void shouldGetAllTodos() {
         assertThat(serviceUnderTest.getAllTodos()).isNotEmpty();
     }
 
