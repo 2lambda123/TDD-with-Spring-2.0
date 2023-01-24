@@ -38,6 +38,6 @@ class TodoRepositoryTest {
     @Test
     @DisplayName("Should Find Todo By Description")
     void shouldFindTodoByDescription() {
-        assertThat(repositoryUnderTest.findTodoByDescription("Clean desk")).isNull();
+        assertThat(repositoryUnderTest.findTodoByDescription("Clean desk")).isNotNull();
     }
 }
