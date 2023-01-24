@@ -34,4 +34,10 @@ class TodoRepositoryTest {
     void shouldReturnNullIfTodoNotFoundByTitle() {
         assertThat(repositoryUnderTest.findTodoByTitle("Todo 2")).isNull();
     }
+
+    @Test
+    @DisplayName("Should Find Todo By Description")
+    void shouldFindTodoByDescription() {
+        assertThat(repositoryUnderTest.findTodoByDescription("Clean desk")).isNull();
+    }
 }
