@@ -40,4 +40,10 @@ class TodoRepositoryTest {
     void shouldFindTodoByDescription() {
         assertThat(repositoryUnderTest.findTodoByDescription("Clean desk")).isNotNull();
     }
+
+    @Test
+    @DisplayName("Should Find Todo By Title And Description")
+    void shouldFindTodoByTitleAndDescription() {
+        assertThat(repositoryUnderTest.findTodoByTitleAndDescription("Todo 1", "Clean desk")).isNull();
+    }
 }
