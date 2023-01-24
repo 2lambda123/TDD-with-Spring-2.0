@@ -32,4 +32,8 @@ public class TodoService {
         todoRepository.saveAll(todoList);
         return true;
     }
+
+    public Todo getTodoByDescription(String description) {
+        return todoRepository.findTodoByDescription(description);
+    }
 }
