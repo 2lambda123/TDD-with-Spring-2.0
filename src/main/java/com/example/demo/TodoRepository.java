@@ -8,4 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface TodoRepository extends JpaRepository<Todo, Integer> {
     @Query
     Todo findTodoByTitle(String title);
+
+    @Query
+    Todo findTodoByDescription(String description);
 }
