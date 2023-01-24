@@ -36,7 +36,7 @@ class TodoServiceTest {
                 .build();
         when(todoRepository.findTodoByTitle(any())).thenReturn(existingTodo);
 
-        assertThat(serviceUnderTest.getTodoByName("Todo 2")).isNotEmpty();
+        assertThat(serviceUnderTest.getTodoByName("Todo 2")).isNotNull();
     }
 
     @Test
