@@ -29,7 +29,7 @@ class TodoServiceTest {
 
     @Test
     @DisplayName("Should return Todo by name")
-    void shouldReturnTodoByName() {
+    void shouldGetTodoByTitle() {
         assertThat(serviceUnderTest.getTodoByName("Todo 2")).isNotEmpty();
     }
 
@@ -76,4 +76,6 @@ class TodoServiceTest {
                 .build());
         assertThat(serviceUnderTest.addAllTodos(todosToSave)).isTrue();
     }
+
+
 }
