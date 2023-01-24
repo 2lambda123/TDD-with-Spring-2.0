@@ -100,4 +100,12 @@ class TodoServiceTest {
 
         assertThat(serviceUnderTest.getTodoByDescription(existingTodo.getDescription())).isEqualTo(existingTodo);
     }
+
+    @Test
+    @DisplayName("Should Throw Exception If Todo Not Found By Description")
+    void shouldThrowExceptionIfTodoNotFoundByDescription() {
+        assertThrows(RuntimeException.class, () -> {
+            serviceUnderTest.getTodoByDescription("Clean Room");
+        });
+    }
 }
