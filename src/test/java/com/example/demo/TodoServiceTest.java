@@ -22,9 +22,15 @@ class TodoServiceTest {
     private TodoRepository todoRepository;
 
     @Test
-    @DisplayName("Should Return All Todos")
+    @DisplayName("Should Get All Todos")
     void shouldGetAllTodos() {
-        assertThat(serviceUnderTest.getAllTodos()).isNotEmpty();
+        ArrayList<Todo> existingTodos = new ArrayList<>();
+        existingTodos.add(new Todo(1, "Todo 1", "Clean home"));
+        existingTodos.add(new Todo(2, "Todo 2", "Pack Bag"));
+        existingTodos.add(new Todo(3, "Todo 3", "Iron clothes"));
+        when(todoRepository.findAll()).thenReturn(existingTodos);
+
+        assertThat(serviceUnderTest.getAllTodos()).isEqualTo(existingTodos);
     }
 
     @Test
