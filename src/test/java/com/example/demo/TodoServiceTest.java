@@ -78,16 +78,26 @@ class TodoServiceTest {
     void shouldSaveAllTodosAndReturnTrue() {
         ArrayList<Todo> todosToSave = new ArrayList<>();
         todosToSave.add(Todo.builder()
-                        .title("Todo 4")
-                        .description("Clean room")
+                .title("Todo 4")
+                .description("Clean room")
                 .build());
 
         todosToSave.add(Todo.builder()
-                        .title("Todo 5")
-                        .description("Iron clothes")
+                .title("Todo 5")
+                .description("Iron clothes")
                 .build());
         assertThat(serviceUnderTest.addAllTodos(todosToSave)).isTrue();
     }
 
+    @Test
+    @DisplayName("Should Get Todo By Description")
+    void shouldGetTodoByDescription() {
+        Todo existingTodo = Todo.builder()
+                .title("Todo 1")
+                .description("Clean room")
+                .build();
+        when(todoRepository.findTodoByDescription(existingTodo.getDescription())).thenReturn(existingTodo);
 
+        assertThat(serviceUnderTest.getTodoByDescription(existingTodo.getDescription())).isEqualTo(existingTodo);
+    }
 }
