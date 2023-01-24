@@ -108,4 +108,23 @@ class TodoServiceTest {
             serviceUnderTest.getTodoByDescription("Clean Room");
         });
     }
+
+    @Test
+    @DisplayName("Should Get Todo By Title And Description")
+    void shouldGetTodoByTitleAndDescription() {
+        Todo existingTodo = Todo.builder()
+                .title("Todo 1")
+                .description("Clean laptop")
+                .build();
+        when(todoRepository.findTodoByTitleAndDescription(
+                existingTodo.getTitle(),
+                existingTodo.getDescription()
+        ))
+                .thenReturn(existingTodo);
+
+        assertThat(serviceUnderTest.getTodoByTitleAndDescription(
+                existingTodo.getTitle(),
+                existingTodo.getDescription()
+        )).isNotNull();
+    }
 }
