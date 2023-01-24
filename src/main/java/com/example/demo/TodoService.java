@@ -34,6 +34,9 @@ public class TodoService {
     }
 
     public Todo getTodoByDescription(String description) {
+        if (todoRepository.findTodoByDescription(description) == null) {
+            throw new RuntimeException("No matching Todo found by description");
+        }
         return todoRepository.findTodoByDescription(description);
     }
 }
