@@ -41,6 +41,9 @@ public class TodoService {
     }
 
     public Todo getTodoByTitleAndDescription(String title, String description) {
+        if (todoRepository.findTodoByTitleAndDescription(title, description) == null) {
+            throw new RuntimeException("No matching Todo found by provided title and description");
+        }
         return todoRepository.findTodoByTitleAndDescription(title, description);
     }
 }
