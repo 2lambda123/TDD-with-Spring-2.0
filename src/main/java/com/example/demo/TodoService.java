@@ -39,4 +39,8 @@ public class TodoService {
         }
         return todoRepository.findTodoByDescription(description);
     }
+
+    public Todo getTodoByTitleAndDescription(String title, String description) {
+        return todoRepository.findTodoByTitleAndDescription(title, description);
+    }
 }
