@@ -11,4 +11,7 @@ public interface TodoRepository extends JpaRepository<Todo, Integer> {
 
     @Query
     Todo findTodoByDescription(String description);
+
+    @Query
+    Todo findTodoByTitleAndDescription(String title, String description);
 }
